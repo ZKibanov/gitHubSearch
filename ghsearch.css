@@ -1,0 +1,68 @@
+.main-content {
+    box-sizing: border-box;
+    font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,OXygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    background-color: #C4C4C4;
+    max-width:661px;
+    min-height: 763px;
+    display:flex;
+    flex-direction: column;
+    flex-wrap:nowrap;
+    padding:77px;
+    padding-top:62px;
+    position:relative;
+}
+
+.input {
+font-size: 48px;
+height:61px;
+width:490px;
+margin:0 auto;
+margin-bottom: 265px;
+}
+
+.resultsList {
+    position:absolute;
+    top:123px;
+    width:500px;
+    margin:0 auto;
+}
+
+.resultsList p{
+    width:500px;
+    background-color: #E3E3E3;
+    margin: 0;
+    font-size: 30px;
+    border:2px solid black;
+}
+
+.resultsList p:hover {
+    background-color: #65CDF9;
+
+}
+
+.card {
+    height:101px;
+    box-sizing: border-box;
+    border:1px solid black;
+    padding:8px 16px;
+    font-size: 24px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:#E27BEB;
+}
+
+.cardBody {
+    border:1px solid black;
+
+}
+
+.card p {
+    margin:0;
+}
+
+.button-delete {
+    background-image: <svg width="46" height="42" viewBox="0 0 46 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 40.5L44 2" stroke="#FF0000" stroke-width="4"/>
+    </svg>;
+}
