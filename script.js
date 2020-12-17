@@ -41,9 +41,7 @@ function cardTemplate (el) {
     const btnDelete = document.createElement('button-delete')
     btnDelete.textContent = 'X';
     btnDelete.onclick = function(){
-        btnDelete.parentElement.remove();
-        console.log('click')
-        
+        btnDelete.parentElement.remove();        
     }
     card.appendChild(btnDelete)
     return card
@@ -92,8 +90,10 @@ function showSearchResults (searchResults) {
 function createPost(response){
         let card = cardTemplate(response);
         console.log(card)
+        input.value = '';
         container.insertAdjacentElement('beforeend',card);
-       
+        const searchResults = document.querySelector('.resultsList')
+        searchResults.remove()
     };
 
   
