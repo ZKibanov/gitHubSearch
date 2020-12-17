@@ -38,7 +38,8 @@ function cardTemplate (el) {
     article3.textContent = `Stars:${el.stargazers_count}`;
     cardBody.appendChild(article3);
     card.appendChild(cardBody);
-    const btnDelete = document.createElement('button-delete')
+    const btnDelete = document.createElement('button')
+    btnDelete.classList.add('button-delete')
     btnDelete.textContent = 'X';
     btnDelete.onclick = function(){
         btnDelete.parentElement.remove();        
@@ -77,19 +78,16 @@ function showSearchResults (searchResults) {
     art4.number = 4;
     art4.textContent = resultsArray[4].name;
     resultsList.appendChild(art4);
-    console.log(resultsList)
 
     resultsList.onclick = function(event){
         let target = event.target;
         createPost(resultsArray[target.number]);
-        console.log(target.number)
     }
     container.insertAdjacentElement('afterbegin',resultsList);
 }
 
 function createPost(response){
         let card = cardTemplate(response);
-        console.log(card)
         input.value = '';
         container.insertAdjacentElement('beforeend',card);
         const searchResults = document.querySelector('.resultsList')
@@ -101,8 +99,6 @@ function createPost(response){
 
 async function searchRepos (searchReqest){ 
   let res = await getPost(searchReqest);
-  console.log(res)
-  console.log(res.items[2].name)
   showSearchResults(res)
 }
 
