@@ -42,7 +42,7 @@ margin-bottom: 265px;
 }
 
 .card {
-    height:101px;
+    min-height:101px;
     box-sizing: border-box;
     border:1px solid black;
     padding:8px 16px;
