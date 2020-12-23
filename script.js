@@ -3,7 +3,7 @@ function getPost(name) {
 		fetch(`https://api.github.com/search/repositories?q=${name}&sort=stars&order=desc`)
 		.then(response => response.text())
 		.then(post => resolve(JSON.parse(post)))
-		.catch(e => console.log(e));
+		.catch(e => console.log('fuck'));
 		})
     }
 
@@ -27,7 +27,8 @@ const debounce = (fn, debounceTime) => {
 
 const container = document.querySelector('.container')
 
-function cardTemplate (el) {
+function cardTemplate (el) { 
+	if (el) {
     const card = elementCreator('div','card');
 
     const cardBody = elementCreator('div','card-body');
@@ -49,10 +50,12 @@ function cardTemplate (el) {
 
     card.appendChild(btnDelete)
     return card
+}
     }
 
 function showSearchResults (searchResults) {
     const resultsList = elementCreator('div','resultsList')
+    if (searchResults.items){
     let resultsArray = searchResults.items;
     for (let i = 0; i < 5;i += 1){
         let art = elementCreator('p',null, resultsArray[i].name);
@@ -64,15 +67,19 @@ function showSearchResults (searchResults) {
         let target = event.target;
         createPost(resultsArray[target.number]);
     }
+
     container.insertAdjacentElement('afterbegin',resultsList);
+}
 }
 
 function createPost(response){
+	    if (response){
         const searchResults = document.querySelector('.resultsList')
         searchResults.remove()
         let card = cardTemplate(response);
         input.value = '';
         container.insertAdjacentElement('beforeend',card);
+	}
 
     };
 
@@ -91,3 +98,4 @@ function getSearchRequest() {
 const input = document.querySelector('.input')
 const debouncedFn = debounce(getSearchRequest,300)
 input.addEventListener('input', debouncedFn);
+
