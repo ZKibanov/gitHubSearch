@@ -3,7 +3,7 @@ function getPost(name) {
 		fetch(`https://api.github.com/search/repositories?q=${name}&sort=stars&order=desc`)
 		.then(response => response.text())
 		.then(post => resolve(JSON.parse(post)))
-		.catch(e => console.log('fuck'));
+		.catch(e => console.log(e));
 		})
     }
 
