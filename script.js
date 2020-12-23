@@ -1,9 +1,18 @@
 function getPost(name) {
 	return new Promise((resolve,reject)=>{
+		const regex = RegExp(/\w/);
+		if ((name.length>0)&&(regex.test(name))){
 		fetch(`https://api.github.com/search/repositories?q=${name}&sort=stars&order=desc`)
+		.then((response) => {  
+        if (response.status !== 200) {  
+        console.log('Looks like there was a problem. Status Code: ' +  response.status);  
+        throw Error('Houston,we have a problem!');  
+      } else return response
+      })
 		.then(response => response.text())
 		.then(post => resolve(JSON.parse(post)))
 		.catch(e => console.log(e));
+	}
 		})
     }
 
